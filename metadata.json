@@ -13,6 +13,18 @@
     {
       "name": "puppetlabs-stdlib",
       "version_range": ">= 1.0.0"
+    },
+    {
+      "name": "saz/motd",
+      "version_requirement": "2.x"
+    },
+    {
+      "name": "saz/ssh",
+      "version_requirement": "2.x"
+    },
+    {
+      "name": "puppetlabs/ntp",
+      "version_requirement": "3.x"
     }
   ],
   "operatingsystem_support": [
@@ -25,6 +37,13 @@
     }
   ],
   "tags": [
-    "''"
+
+  ],
+  "classes": [
+    "profile::base",
+    "profile"
+  ],
+  "definitions": [
+
   ]
 }

@@ -12,7 +12,7 @@
 # * https://github.com/rnelson0/rnelson0-profile
 
 
-class profile::base inherits profile {
+class profile {
     
 
 
