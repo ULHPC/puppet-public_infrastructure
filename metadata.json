@@ -1,0 +1,49 @@
+{
+  "name": "ulhpc-profiles",
+  "version": "0.0.2",
+  "author": "S. Varrette, H. Cartiaux, V. Plugaru",
+  "mail": "hpc-sysadmins@uni.lu",
+  "summary": "Public Puppet profiles to be used in r10k environments",
+  "description": "Public Puppet profiles to be used in r10k environments",
+  "license": "apache-2.0",
+  "source": "https://github.com/ULHPC/puppet-profiles",
+  "project_page": "https://github.com/ULHPC/puppet-profiles",
+  "issues_url": "https://github.com/ULHPC/puppet-profiles/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    },
+    {
+      "name": "saz/motd",
+      "version_requirement": "2.x"
+    },
+    {
+      "name": "saz/ssh",
+      "version_requirement": "2.x"
+    },
+    {
+      "name": "puppetlabs/ntp",
+      "version_requirement": "3.x"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "tags": [
+
+  ],
+  "classes": [
+    "profile::base",
+    "profile"
+  ],
+  "definitions": [
+
+  ]
+}
