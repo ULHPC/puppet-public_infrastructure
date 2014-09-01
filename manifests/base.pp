@@ -30,7 +30,7 @@
 #
 # [Remember: No empty lines between comments and class definition]
 #
-class base ( $ensure = $base::params::ensure ) inherits base::params {
+class profile::base inherits profile {
 
     include ::motd
 
