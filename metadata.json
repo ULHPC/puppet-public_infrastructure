@@ -1,6 +1,6 @@
 {
   "name": "ulhpc-profiles",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "S. Varrette, H. Cartiaux, V. Plugaru",
   "mail": "hpc-sysadmins@uni.lu",
   "summary": "Public Puppet profiles to be used in r10k environments",
@@ -24,5 +24,7 @@
       ]
     }
   ],
-  "tags": ["''"]
+  "tags": [
+    "''"
+  ]
 }
