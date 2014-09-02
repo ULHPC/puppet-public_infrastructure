@@ -93,3 +93,6 @@ puppet apply ${INSTALL_MANIFEST}
 
 [ "${FOUND_YUM}" -eq "0" ] && yum reinstall rubygems -y
 [ "${FOUND_APT}" -eq "0" ] && apt-get install --reinstall -y rubygems
+
+info "deploying r10k"
+r10k deploy environment -pv
