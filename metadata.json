@@ -1,14 +1,14 @@
 {
-  "name": "ulhpc-profiles",
+  "name": "ulhpc-public_infrastructure",
   "version": "0.0.2",
   "author": "S. Varrette, H. Cartiaux, V. Plugaru",
   "mail": "hpc-sysadmins@uni.lu",
   "summary": "Public Puppet profiles to be used in r10k environments",
   "description": "Public Puppet profiles to be used in r10k environments",
   "license": "apache-2.0",
-  "source": "https://github.com/ULHPC/puppet-profiles",
-  "project_page": "https://github.com/ULHPC/puppet-profiles",
-  "issues_url": "https://github.com/ULHPC/puppet-profiles/issues",
+  "source": "https://github.com/ULHPC/puppet-public_infrastructure",
+  "project_page": "https://github.com/ULHPC/puppet-public_infrastructure",
+  "issues_url": "https://github.com/ULHPC/puppet-public_infrastructure/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
@@ -37,7 +37,9 @@
     }
   ],
   "tags": [
-
+      "r10k",
+      "roles",
+      "profiles"
   ],
   "classes": [
     "profile::base",
