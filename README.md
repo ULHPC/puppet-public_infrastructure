@@ -6,7 +6,8 @@
 ![Supported Platforms](http://img.shields.io/badge/platform-debian-lightgrey.svg)
 
 Public Puppet profiles and roles to be used in r10k environments, typically in
-Vagrant boxes.
+Vagrant boxes. See [vagrant-vms](https://github.com/Falkor/vagrant-vms) for
+instance. 
 
       Copyright (c) 2014 S. Varrette, H. Cartiaux, V. Plugaru <hpc-sysadmins@uni.lu>
       
@@ -33,7 +34,7 @@ available with [Librarian puppet](http://librarian-puppet.com/) or
 [r10k](https://github.com/adrienthebo/r10k) by adding the following entry:
 
      mod ulhpc-public_infrastructure, 
-         :git => https://github.com/ULHPC/puppet-profiles,
+         :git => https://github.com/ULHPC/puppet-public_infrastructure,
          :ref => production 
 
 ## Issues / Feature request
@@ -61,4 +62,18 @@ You should become familiar (if not yet) with Git. Consider these resources:
 * [Github:help](http://help.github.com/mac-set-up-git/)
 * [Git reference](http://gitref.org/)
 
-### Roles and Profiles
+### r10k, Roles and Profiles
+
+* [r10k reference](https://github.com/adrienthebo/r10k) --
+  [Puppetfiles](https://github.com/adrienthebo/r10k/blob/master/doc/puppetfile.mkd)
+  and
+  [dynamic environment deployment](https://github.com/adrienthebo/r10k/blob/master/doc/dynamic-environments.mkd)
+  documentations
+* a [Puppet Tutorial](https://github.com/rnelson0/puppet-tutorial) bootstrapping
+  a similar configuration, including
+  [profiles](https://github.com/rnelson0/rnelson0-profile) and
+  [roles](https://github.com/rnelson0/rnelson0-role) -- see
+  [Puppet for Vsphere admins](http://rnelson0.com/puppet-for-vsphere-admins/)
+* __r10k tutorials__:
+  * [Gary Larizza blog](http://garylarizza.com/blog/2014/02/18/puppet-workflow-part-3/),  
+  * [Hunner](https://github.com/hunner/roles_and_profiles)
