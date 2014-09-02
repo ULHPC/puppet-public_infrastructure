@@ -1,12 +1,12 @@
 -*- mode: markdown; mode: auto-fill; fill-column: 80 -*-
 
-# Profiles Puppet Module 
+# Public Puppet Infrastructure (roles & profiles) for r10k
 
-[![Puppet Forge](http://img.shields.io/puppetforge/v/ulhpc/profiles.svg)](https://forge.puppetlabs.com//ulhpc/profiles)
 [![License](http://img.shields.io/:license-apache2.0-blue.svg)](LICENSE)
 ![Supported Platforms](http://img.shields.io/badge/platform-debian-lightgrey.svg)
 
-Public Puppet profiles to be used in r10k environments
+Public Puppet profiles and roles to be used in r10k environments, typically in
+Vagrant boxes.
 
       Copyright (c) 2014 S. Varrette, H. Cartiaux, V. Plugaru <hpc-sysadmins@uni.lu>
       
@@ -15,36 +15,16 @@ Public Puppet profiles to be used in r10k environments
 
 ## Synopsis
 
-Public Puppet profiles to be used in r10k environments
+Public Puppet infrastructure (i.e. roles and profiles) to be used within r10k
+environments.  
 The various operations of this repository are piloted from a `Rakefile` which
 assumes that you have [RVM](https://rvm.io/) installed on your system.
 
 ## Dependencies
 
-See `metadata.json`.
-
-## profiles class parameters
-
-* `$ensure` [Default: 'present']: Ensure ulhpc-profiles is present, absent etc. 
-
-## Usage
-
-### class profiles
-
-     include 'profiles'
+See `metadata.json`
 
 
-## Documentation
-
-Please refer to the header of each manifest files to understand the usage of
-classes and definitions associated to the 'ulhpc-profiles' module.
- 
-Alternatively, generate automatically the documentation via
-[`puppet doc`](http://docs.puppetlabs.com/man/doc.html) as follows:  
-
-       $> rake doc   # Not yet implemented
-       
-For other information, please refer to the `metadata.json` file in this directory 
 
 ## Librarian-Puppet / R10K Setup
 
@@ -52,10 +32,9 @@ You can of course configure ulhpc-profiles in your `Puppetfile` to make it
 available with [Librarian puppet](http://librarian-puppet.com/) or
 [r10k](https://github.com/adrienthebo/r10k) by adding the following entry:
 
-     mod ulhpc-profiles, 
+     mod ulhpc-public_infrastructure, 
          :git => https://github.com/ULHPC/puppet-profiles,
          :ref => production 
-
 
 ## Issues / Feature request
 
@@ -82,3 +61,4 @@ You should become familiar (if not yet) with Git. Consider these resources:
 * [Github:help](http://help.github.com/mac-set-up-git/)
 * [Git reference](http://gitref.org/)
 
+### Roles and Profiles
