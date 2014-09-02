@@ -28,7 +28,11 @@ mod "puppetlabs/vcsrepo"
 #     :git => 'https://github.com/Falkor/puppet-augeas.git',
 #     :ref => "devel"
 
-# Duplicate ULHPC public puppet infrastructure as module
-mod "ulhpc/public_infrastructure", 
-    :git => 'https://github.com/ULHPC/puppet-public_infrastructure',
-    :ref => 'production'  
+# Public ULHPC Puppet roles and profiles
+mod "ULHPC/public_profiles",
+    :git => 'https://github.com/ULHPC/puppet-public_profiles',
+    :ref => 'production'
+mod "ULHPC/public_roles",
+    :git => 'https://github.com/ULHPC/puppet-public_roles',
+    :ref => 'production'
+
