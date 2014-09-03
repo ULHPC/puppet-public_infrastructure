@@ -29,10 +29,10 @@ mod "puppetlabs/vcsrepo"
 #     :ref => "devel"
 
 # Public ULHPC Puppet roles and profiles
-mod "ULHPC/public_profiles",
+mod "profiles",
     :git => 'https://github.com/ULHPC/puppet-public_profiles',
-    :ref => 'production'
-mod "ULHPC/public_roles",
+    :ref => 'devel'
+mod "roles",
     :git => 'https://github.com/ULHPC/puppet-public_roles',
-    :ref => 'production'
+    :ref => 'devel'
 
