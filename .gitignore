@@ -4,3 +4,6 @@
 .ruby-*
 .falkorlib.yaml
 /pkg/*
+.tmp/
+modules/
+.librarian/
