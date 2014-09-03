@@ -20,7 +20,7 @@ PUPPETFILE_SRC=/tmp/Puppetfile
 if [ -d '/vagrant' ]; then
     [ -f '/vagrant/puppet/Puppetfile' ] && PUPPETFILE_SRC=/vagrant/puppet/Puppetfile
     [ -f '/vagrant/Puppetfile' ]        && PUPPETFILE_SRC=/vagrant/Puppetfile
-    [ -f '/vagrant/manifests/install.pp' ] && INSTALL_MANIFEST=/vagrant/manifests/install.pp
+    [ -f '/vagrant/site/r10k.pp' ] && INSTALL_MANIFEST=/vagrant/site/r10k.pp
 fi
 
 info() {
@@ -85,14 +85,19 @@ if [ ! -d "${PUPPET_ENV_DIR}" ]; then
     mkdir -p ${PUPPET_ENV_DIR}
 fi
 
-[ -z "${INSTALL_MANIFEST}" ] && print_error_and_exit "unable to find the installer manifest"
+[ -z "${INSTALL_MANIFEST}"   ] && print_error_and_exit "unable to find the installer manifest"
+[ ! -f "${INSTALL_MANIFEST}" ] && print_error_and_exit "couldn't find ${INSTALL_MANIFEST}"
 
 info "Configuring r10k by puppet apply"
 puppet apply ${INSTALL_MANIFEST}
-
 
 [ "${FOUND_YUM}" -eq "0" ] && yum reinstall rubygems -y
 [ "${FOUND_APT}" -eq "0" ] && apt-get install --reinstall -y rubygems
 
 info "deploying r10k"
 r10k deploy environment -pv
+
+# Cleanup
+[ -d "${PUPPET_DIR}/modules"  ]   && rm -rf ${PUPPET_DIR}/modules
+[ -d "${PUPPET_DIR}/manifests"  ] && rm -rf ${PUPPET_DIR}/manifests
+
