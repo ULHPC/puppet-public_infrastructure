@@ -1,3 +1,6 @@
+$puppet_confdir = '/etc/puppet'
+$puppet_envdir  = "${puppet_confdir}/environments"
+
 class { 'r10k':
     version           => '2.2.8',
     sources           => {
@@ -14,9 +17,9 @@ class { 'r10k':
 
 ini_setting { 'manifestdir':
     ensure  => 'present',
-    path    => '/etc/puppet/puppet.conf',
+    path    => "${puppet_confdir}/puppet.conf",
     section => 'main',
     setting => 'manifestdir',
-    value   => '/etc/puppet/environments/$environment/manifests',
+    value   => "${puppet_envdir}/\$environment/manifests",
 }
 

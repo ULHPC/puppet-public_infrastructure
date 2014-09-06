@@ -1,6 +1,15 @@
 FORGE
   remote: https://forgeapi.puppetlabs.com
   specs:
+    ULHPC-public_profiles (0.0.5)
+      puppetlabs-ntp (~> 3.0)
+      puppetlabs-stdlib (>= 0)
+      saz-motd (~> 2.0)
+      saz-ssh (~> 2.0)
+      zack-r10k (~> 2.0)
+    ULHPC-sudo (0.2.0)
+      puppetlabs-concat (~> 1.0)
+      puppetlabs-stdlib (>= 0)
     gentoo-portage (2.2.0)
       puppetlabs-concat (~> 1.0)
     mhuffnagle-make (0.0.2)
@@ -20,6 +29,10 @@ FORGE
     saz-motd (2.1.0)
     saz-ssh (2.3.6)
       puppetlabs-stdlib (>= 2.2.1)
+    sbadia-gitlab (0.1.5)
+      puppetlabs-git (>= 0.0.3)
+      puppetlabs-stdlib (>= 3.1.0)
+      puppetlabs-vcsrepo (>= 0.2.0)
     zack-r10k (2.2.8)
       gentoo-portage (>= 2.0.0)
       mhuffnagle-make (>= 0.0.1)
@@ -33,10 +46,10 @@ FORGE
 
 GIT
   remote: https://github.com/ULHPC/puppet-public_profiles
-  ref: production
-  sha: 6ee7f154d1b06f0db7b6b00862f9a31d88ef17ed
+  ref: devel
+  sha: 0a7cea9cbf9758aabc00c236bfdca96111b904ad
   specs:
-    ULHPC-public_profiles (0.0.5)
+    ULHPC-profiles (0.0.5)
       puppetlabs-ntp (~> 3.0)
       puppetlabs-stdlib (>= 0)
       saz-motd (~> 2.0)
@@ -45,16 +58,17 @@ GIT
 
 GIT
   remote: https://github.com/ULHPC/puppet-public_roles
-  ref: production
-  sha: ac56210783a545a1c959a82876fef2e59f553976
+  ref: devel
+  sha: 9773c5d7b7daeba7ffccaa3ea011ecab758118b3
   specs:
-    ULHPC-public_roles (0.0.4)
+    ULHPC-roles (0.0.4)
       ULHPC-public_profiles (~> 0.0)
       puppetlabs-stdlib (>= 0)
 
 DEPENDENCIES
-  ULHPC-public_profiles (>= 0)
-  ULHPC-public_roles (>= 0)
+  ULHPC-profiles (>= 0)
+  ULHPC-roles (>= 0)
+  ULHPC-sudo (>= 0)
   gentoo-portage (>= 0)
   mhuffnagle-make (>= 0)
   puppetlabs-concat (>= 0)
@@ -68,6 +82,7 @@ DEPENDENCIES
   puppetlabs-vcsrepo (>= 0)
   saz-motd (>= 0)
   saz-ssh (>= 0)
+  sbadia-gitlab (>= 0)
   zack-r10k (>= 0)
   zack-r10k (>= 0)
 

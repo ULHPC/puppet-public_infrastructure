@@ -88,9 +88,10 @@ fi
 [ -z "${INSTALL_MANIFEST}"   ] && print_error_and_exit "unable to find the installer manifest"
 [ ! -f "${INSTALL_MANIFEST}" ] && print_error_and_exit "couldn't find ${INSTALL_MANIFEST}"
 
-info "Configuring r10k by puppet apply"
+info "bootstrap r10k configuration"
 puppet apply ${INSTALL_MANIFEST}
 
+info "correct rubygems configuration"
 [ "${FOUND_YUM}" -eq "0" ] && yum reinstall rubygems -y
 [ "${FOUND_APT}" -eq "0" ] && apt-get install --reinstall -y rubygems
 
@@ -98,6 +99,8 @@ info "deploying r10k"
 r10k deploy environment -pv
 
 # Cleanup
+info "cleanup"
 [ -d "${PUPPET_DIR}/modules"  ]   && rm -rf ${PUPPET_DIR}/modules
 [ -d "${PUPPET_DIR}/manifests"  ] && rm -rf ${PUPPET_DIR}/manifests
 
+info "bootstrap the box"
