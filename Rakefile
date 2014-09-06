@@ -24,5 +24,21 @@ require 'falkorlib/tasks/git'
 require 'falkorlib/tasks/puppet'
 
 ##############################################################################
-#TOP_SRCDIR = File.expand_path(File.join(File.dirname(__FILE__), "."))
+TOP_SRCDIR = File.expand_path(File.join(File.dirname(__FILE__), "."))
 
+PuppetLint.configuration.ignore_paths << 'modules/**/*'
+
+
+
+#.....................
+namespace :librarian do
+	###########   puppet   ###########
+	desc "puppet Invoke librarian puppet to initiate a local copy of the used modules"
+	task :puppet do |t|
+		info "#{t.comment}"
+		run %{ librarian-puppet install }
+	end # task puppet 
+end # namespace librarian
+
+
+task :setup => 'librarian:puppet'

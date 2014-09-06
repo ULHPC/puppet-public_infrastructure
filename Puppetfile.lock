@@ -1,0 +1,88 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    ULHPC-public_profiles (0.0.5)
+      puppetlabs-ntp (~> 3.0)
+      puppetlabs-stdlib (>= 0)
+      saz-motd (~> 2.0)
+      saz-ssh (~> 2.0)
+      zack-r10k (~> 2.0)
+    ULHPC-sudo (0.2.0)
+      puppetlabs-concat (~> 1.0)
+      puppetlabs-stdlib (>= 0)
+    gentoo-portage (2.2.0)
+      puppetlabs-concat (~> 1.0)
+    mhuffnagle-make (0.0.2)
+    puppetlabs-concat (1.1.0)
+      puppetlabs-stdlib (>= 4.0.0)
+    puppetlabs-gcc (0.2.0)
+    puppetlabs-git (0.2.0)
+      puppetlabs-vcsrepo (>= 0.1.0)
+    puppetlabs-inifile (1.1.3)
+    puppetlabs-ntp (3.1.2)
+      puppetlabs-stdlib (>= 4.0.0)
+    puppetlabs-pe_gem (0.0.1)
+    puppetlabs-ruby (0.2.1)
+      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
+    puppetlabs-stdlib (4.3.2)
+    puppetlabs-vcsrepo (1.1.0)
+    saz-motd (2.1.0)
+    saz-ssh (2.3.6)
+      puppetlabs-stdlib (>= 2.2.1)
+    sbadia-gitlab (0.1.5)
+      puppetlabs-git (>= 0.0.3)
+      puppetlabs-stdlib (>= 3.1.0)
+      puppetlabs-vcsrepo (>= 0.2.0)
+    zack-r10k (2.2.8)
+      gentoo-portage (>= 2.0.0)
+      mhuffnagle-make (>= 0.0.1)
+      puppetlabs-gcc (>= 0.0.3)
+      puppetlabs-git (>= 0.0.3)
+      puppetlabs-inifile (>= 1.0.0)
+      puppetlabs-pe_gem (>= 0.0.1)
+      puppetlabs-ruby (>= 0.0.2)
+      puppetlabs-stdlib (>= 3.2.0)
+      puppetlabs-vcsrepo (>= 0.1.2)
+
+GIT
+  remote: https://github.com/ULHPC/puppet-public_profiles
+  ref: devel
+  sha: 0a7cea9cbf9758aabc00c236bfdca96111b904ad
+  specs:
+    ULHPC-profiles (0.0.5)
+      puppetlabs-ntp (~> 3.0)
+      puppetlabs-stdlib (>= 0)
+      saz-motd (~> 2.0)
+      saz-ssh (~> 2.0)
+      zack-r10k (~> 2.0)
+
+GIT
+  remote: https://github.com/ULHPC/puppet-public_roles
+  ref: devel
+  sha: 9773c5d7b7daeba7ffccaa3ea011ecab758118b3
+  specs:
+    ULHPC-roles (0.0.4)
+      ULHPC-public_profiles (~> 0.0)
+      puppetlabs-stdlib (>= 0)
+
+DEPENDENCIES
+  ULHPC-profiles (>= 0)
+  ULHPC-roles (>= 0)
+  ULHPC-sudo (>= 0)
+  gentoo-portage (>= 0)
+  mhuffnagle-make (>= 0)
+  puppetlabs-concat (>= 0)
+  puppetlabs-gcc (>= 0)
+  puppetlabs-git (>= 0)
+  puppetlabs-inifile (>= 0)
+  puppetlabs-ntp (>= 0)
+  puppetlabs-pe_gem (>= 0)
+  puppetlabs-ruby (>= 0)
+  puppetlabs-stdlib (>= 0)
+  puppetlabs-vcsrepo (>= 0)
+  saz-motd (>= 0)
+  saz-ssh (>= 0)
+  sbadia-gitlab (>= 0)
+  zack-r10k (>= 0)
+  zack-r10k (>= 0)
+

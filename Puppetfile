@@ -7,7 +7,7 @@ mod "zack/r10k"
 mod "puppetlabs/ntp"
 mod "saz/ssh"
 mod "saz/motd"
-
+mod "sbadia/gitlab"
 
 # For our r10k installer
 mod "zack/r10k"
@@ -20,6 +20,10 @@ mod "puppetlabs/pe_gem"
 mod "puppetlabs/ruby"
 mod "puppetlabs/vcsrepo"
 
+
+# ULHPC modules
+mod "ULHPC/sudo"
+
 # mod "ulhpc/generic",
 #     :git => 'https://github.com/ULHPC/puppet-generic.git',
 #     :ref => "devel"
@@ -28,7 +32,11 @@ mod "puppetlabs/vcsrepo"
 #     :git => 'https://github.com/Falkor/puppet-augeas.git',
 #     :ref => "devel"
 
-# Duplicate ULHPC public puppet infrastructure as module
-mod "ulhpc/public_infrastructure", 
-    :git => 'https://github.com/ULHPC/puppet-public_infrastructure',
-    :ref => 'production'  
+# Public ULHPC Puppet roles and profiles
+mod "ULHPC/profiles",
+    :git => 'https://github.com/ULHPC/puppet-public_profiles',
+    :ref => 'devel'
+mod "ULHPC/roles",
+    :git => 'https://github.com/ULHPC/puppet-public_roles',
+    :ref => 'devel'
+
