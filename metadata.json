@@ -1,6 +1,6 @@
 {
   "name": "ulhpc-public_infrastructure",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "S. Varrette, H. Cartiaux, V. Plugaru",
   "mail": "hpc-sysadmins@uni.lu",
   "summary": "Public Puppet profiles to be used in r10k environments",
