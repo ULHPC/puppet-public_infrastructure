@@ -33,5 +33,5 @@
 # specified in the console for that node.
 
 node default {
-    include role::base   
+    include role::base
 }

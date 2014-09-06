@@ -26,9 +26,9 @@ require 'falkorlib/tasks/puppet'
 ##############################################################################
 TOP_SRCDIR = File.expand_path(File.join(File.dirname(__FILE__), "."))
 
-require 'rake/clean'
+PuppetLint.configuration.ignore_paths << 'modules/**/*'
 
-CLEAN.add   'pkg'
+
 
 #.....................
 namespace :librarian do
