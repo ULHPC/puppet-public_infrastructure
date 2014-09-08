@@ -1,46 +1,83 @@
 -*- mode: markdown; mode: auto-fill; fill-column: 80 -*-
 
-# Public Puppet Infrastructure (roles & profiles) for r10k
+# Public_infrastructure Puppet Module 
 
+[![Puppet Forge](http://img.shields.io/puppetforge/v/ulhpc/public_infrastructure.svg)]()
 [![License](http://img.shields.io/:license-apache2.0-blue.svg)](LICENSE)
 ![Supported Platforms](http://img.shields.io/badge/platform-debian-lightgrey.svg)
 
-Public Puppet profiles and roles to be used in r10k environments, typically in
-Vagrant boxes. See [vagrant-vms](https://github.com/Falkor/vagrant-vms) for
-instance. 
+Public Puppet profiles to be used in r10k environments
 
       Copyright (c) 2014 S. Varrette, H. Cartiaux, V. Plugaru <hpc-sysadmins@uni.lu>
       
 
-* [Online Project Page](https://github.com/ULHPC/puppet-profiles)  -- [Sources](https://github.com/ULHPC/puppet-profiles) -- [Issues](https://github.com/ULHPC/puppet-profiles/issues)
+* [Online Project Page](https://github.com/ULHPC/puppet-public_infrastructure)  -- [Sources](https://github.com/ULHPC/puppet-public_infrastructure) -- [Issues](https://github.com/ULHPC/puppet-public_infrastructure/issues)
 
 ## Synopsis
 
-Public Puppet infrastructure (i.e. roles and profiles) to be used within r10k
-environments.  
+Public Puppet profiles to be used in r10k environments
+This module implements the following elements: 
+
+* __classes__:     `public_infrastructure`
+* __definitions__: 
+  * `public_infrastructure::mydef`: 
+ 
 The various operations of this repository are piloted from a `Rakefile` which
 assumes that you have [RVM](https://rvm.io/) installed on your system.
 
 ## Dependencies
 
-See `metadata.json`
+See [`metadata.json`](metadata.json). In particular, this module depends on 
 
+* [puppetlabs/stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib)
+* [saz/motd](https://forge.puppetlabs.com/saz/motd)
+* [saz/ssh](https://forge.puppetlabs.com/saz/ssh)
+* [puppetlabs/ntp](https://forge.puppetlabs.com/puppetlabs/ntp)
 
+## General Parameters
+
+See [manifests/params.pp](manifests/params.pp)
+
+## Overview and Usage
+
+### class `public_infrastructure`
+
+     include ' public_infrastructure'
+
+### definition `public_infrastructure::mydef`
+
+The definition `public_infrastructure::mydef` provides ...
+This definition accepts the following parameters:
+
+* `$ensure`: default to 'present', can be 'absent'
+* `$content`: specify the contents of the directive as a string
+* `$source`: copy a file as the content of the directive.
+
+Example:
+
+      public_infrastructure::mydef {'entry':
+           content => "entry\n",
+      }
 
 ## Librarian-Puppet / R10K Setup
 
-You can of course configure ulhpc-profiles in your `Puppetfile` to make it 
+You can of course configure ULHPC-sudo in your `Puppetfile` to make it 
 available with [Librarian puppet](http://librarian-puppet.com/) or
 [r10k](https://github.com/adrienthebo/r10k) by adding the following entry:
 
-     mod ulhpc-public_infrastructure, 
+     # Modules from the Puppet Forge
+     mod "ulhpc-public_infrastructure"
+
+or, if you prefer to work on the git version: 
+
+     mod "ulhpc-public_infrastructure", 
          :git => https://github.com/ULHPC/puppet-public_infrastructure,
          :ref => production 
 
 ## Issues / Feature request
 
 You can submit bug / issues / feature request using the 
-[ulhpc-profiles Tracker](https://github.com/ULHPC/puppet-profiles/issues). 
+[ulhpc-public_infrastructure Puppet Module Tracker](https://github.com/ULHPC/puppet-public_infrastructure/issues). 
 
 
 ## Developments / Contributing to the code 
@@ -51,6 +88,40 @@ These elements are detailed on [`doc/contributing.md`](doc/contributing.md)
 
 You are more than welcome to contribute to its development by 
 [sending a pull request](https://help.github.com/articles/using-pull-requests). 
+
+## Tests on Vagrant box
+
+The best way to test this module in a non-intrusive way is to rely on
+[Vagrant](http://www.vagrantup.com/). The `Vagrantfile` at the root of the
+repository pilot the provisioning of the vagrant box and relies on boxes
+generated through my [vagrant-vms](https://github.com/falkor/vagrant-vms)
+repository.  
+Once cloned, run 
+
+      $> rake packer:Debian:init
+      
+To create a template. Select the version matching the once mentioned on the
+`Vagrantfile` (`7.6.0-amd64` for instance)
+Then run 
+
+      $> rake packer:Debian:build
+      
+This shall generate the vagrant box `debian-7.6.0-amd64.box` that you can then
+add to your box lists: 
+
+      $> vagrant box add debian-7.6.0-amd64  packer/debian-7.6.0-amd64/debian-7.6.0-amd64.box
+
+Now you can run `vagrant up` from this repository to boot the VM, provision it
+to be ready to test this module (see the [`.vagrant_init.rb`](.vagrant_init.rb)
+script). For instance, you can test the manifests of the `tests/` directory
+within the VM: 
+
+      $> vagrant ssh 
+      [...]
+      (vagrant)$> sudo puppet apply -t /vagrant/tests/init.pp
+      
+Run `vagrant halt` (or `vagrant destroy`) to stop (or kill) the VM once you've
+finished to play with it. 
 
 ## Resources
 
